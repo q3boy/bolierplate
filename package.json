@@ -1,0 +1,19 @@
+{
+  "name": "bolierplate",
+  "version": "0.1.0",
+  "description": "bolierplate",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://q3boy@github.com/q3boy/bolierplate.git"
+  },
+  "keywords": [],
+  "author": "q3boy <q3boy1@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "nodejs-fs-utils": "^1.0.26",
+    "readline-sync": "^1.2.21"
+  }
+}
