@@ -1,11 +1,14 @@
 {
-  "name": "bolierplate",
+  "name": "q3boli",
   "version": "0.1.0",
   "description": "bolierplate",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://q3boy@github.com/q3boy/bolierplate.git"
+  },
+  "bin" : {
+    "boli": "./init.coffee"
   },
   "keywords": [],
   "author": "q3boy <q3boy1@gmail.com>",
