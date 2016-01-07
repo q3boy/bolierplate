@@ -1,7 +1,7 @@
 #!/usr/bin/env coffee
 path   = require 'path'
 fs     = require 'fs'
-fsutil = require 'nodejs-fs-utils'
+futil = require 'nodejs-fs-utils'
 cp     = require 'child_process'
 rl     = require 'readline-sync'
 chalk  = require 'chalk'
@@ -50,9 +50,9 @@ package_json =
   keywords        : keywords
   author          : author
   license         : "ISC"
-  dependencies    : {}
-  devDependencies :
+  dependencies    :
     "coffee-script"           : "^1.10.0"
+  devDependencies :
     "mocha"                   : "^2.3.4"
     "istanbul"                : "^0.4.1"
     "chai"                    : "^3.4.1"
@@ -74,7 +74,7 @@ console.log chalk.bold.green('[ok]'), 'package.json'
 
 sublime_json =
   folders: [
-    {path : dir, folder_exclude_patterns: ["coverage", "report"], file_exclude_patterns: [".zip", "*.sublime-*"]}
+    {path : dir, folder_exclude_patterns: ["coverage", "report", "dist"], file_exclude_patterns: [".zip", "*.sublime-*"]}
   ]
   syntax_override : {"test-\\w+\\.coffee$": ["Mocha Chai CoffeeScript", "Syntaxes", "Mocha Chai CoffeeScript"]}
 
@@ -107,11 +107,11 @@ console.log chalk.bold.green('[ok]'), "git init"
 
 
 srcdir = path.join fs.realpathSync(__dirname), 'files'
-fsutil.copySync srcdir, dir, (err) ->
+futil.copySync srcdir, dir, (err) ->
   throw err if err
 # for file in fs.readdirSync srcdir
 #   console.log path.join(srcdir, file), path.join dir, file
-#   fsutil.copySync path.join(srcdir, file), dir, (err) ->
+#   futil.copySync path.join(srcdir, file), dir, (err) ->
 #     throw err if err
 
 console.log chalk.bold.green('[ok]'), "files copy"
