@@ -101,7 +101,7 @@ cmds = [
 
 for cmd in cmds
   [cmd, args...] = cmd.split ' '
-  # throw ret.error unless 0 is cp.spawnSync(cmd, args).status
+  throw ret.error unless 0 is cp.spawnSync(cmd, args).status
 
 console.log chalk.bold.green('[ok]'), "git init"
 
@@ -110,7 +110,7 @@ srcdir = path.join fs.realpathSync(__dirname), 'files'
 futil.copySync srcdir, dir, (err) ->
   throw err if err
 # for file in fs.readdirSync srcdir
-#   console.log path.join(srcdir, file), path.join dir, file
+#   # console.log path.join(srcdir, file), path.join dir, file
 #   futil.copySync path.join(srcdir, file), dir, (err) ->
 #     throw err if err
 
