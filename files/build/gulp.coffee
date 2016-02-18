@@ -11,8 +11,6 @@ os       = require 'os'
 cp       = require 'child_process'
 deps     = require './deps'
 
-
-
 cs    = ['lib/**/*.coffee']
 js    = ["lib/**/*.js"]
 tests = ['tests/**/test-*.coffee']
@@ -34,6 +32,10 @@ gulp.task 'coffee', ['clean'], ->
     .pipe coffee bare: true
     .on 'error', util.log
     .pipe gulp.dest './dist/'
+
+gulp.task 'publish', ['coffee'], ->
+  gulp.src './dist/tests/**/test-*.js', read: false
+    .pipe mocha reporter: noti.decorate 'tap'
 
 gulp.task 'cover', ['coffee'], ->
   gulp.src './dist/lib/**/*.js'

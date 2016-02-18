@@ -50,23 +50,23 @@ package_json =
   keywords        : keywords
   author          : author
   license         : "ISC"
-  dependencies    :
-    "coffee-script"           : "^1.10.0"
+  dependencies    : {}
   devDependencies :
-    "mocha"                   : "^2.3.4"
+    "coffee-script"           : "^1.10.0"
+    "mocha"                   : "^2.4.5"
     "istanbul"                : "^0.4.1"
-    "chai"                    : "^3.4.1"
+    "chai"                    : "^3.5.0"
     "sinon"                   : "^1.17.2"
     "sinon-chai"              : "^2.8.0"
-    "gulp"                    : "^3.9.0"
+    "gulp"                    : "^3.9.1"
     "gulp-util"               : "^3.0.7"
-    "gulp-sequence"           : "^0.4.1"
+    "gulp-sequence"           : "^0.4.5"
     "gulp-coffee"             : "^2.3.1"
     "gulp-mocha"              : "^2.2.0"
     "mocha-notifier-reporter" : "^0.1.1"
     "gulp-istanbul"           : "^0.10.3"
     "madge"                   : "^0.5.3"
-    "glob-stream"             : "^5.2.0"
+    "glob-stream"             : "^5.3.1"
     "nodejs-fs-utils"         : "^1.0.26"
 
 fs.writeFileSync 'package.json', JSON.stringify package_json, null, 2
@@ -81,11 +81,14 @@ sublime_json =
 fs.writeFileSync "#{name}.sublime-project", JSON.stringify sublime_json, null, 2
 console.log chalk.bold.green('[ok]'), "#{name}.sublime-project"
 
-ignores = ['node_modules', 'coverage', 'dist', '.DS_Store'
-  '.sublime-gulp.cache', '.sublime-project', '.sublime-workspace']
+ignores = ['n,ode_modules', 'coverage', 'dist', '.DS_Store''*.sublime*']
 
 fs.writeFileSync ".gitignore", ignores.join '\n'
 console.log chalk.bold.green('[ok]'), ".gitignore"
+
+ignores = ['node_modules', '/coverage', '/dist/tests', '/tests', "/build", "/gulpfile.js", '.DS_Store', '*.sublime*']
+fs.writeFileSync ".npmignore", ignores.join '\n'
+console.log chalk.bold.green('[ok]'), ".npmignore"
 
 fs.writeFileSync 'README.md', "#{name}\n===\n\n#{description}\n"
 console.log chalk.bold.green('[ok]'), "README.md"

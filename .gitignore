@@ -2,8 +2,6 @@ node_modules
 coverage
 dist
 .DS_Store
-.sublime-gulp.cache
-.sublime-project
-.sublime-workspace
-bolierplate.sublime-project
-bolierplate.sublime-workspace
+*.sublime-gulp.cache
+*.sublime-project
+*.sublime-workspace
